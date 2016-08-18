@@ -84,7 +84,7 @@ d3.csv(CSV_FILE, function(data) {
 
   svg.append("g")
       .classed("y axis", true)
-      .call(yAxis);
+      .call(yAxis)
     .append("text")
       .classed("label", true)
       .attr("transform", "rotate(-90)")
