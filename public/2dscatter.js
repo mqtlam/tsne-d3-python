@@ -10,8 +10,8 @@ var xCat = "x",
 // rest of logic below
 
 var margin = { top: 0, right: 0, bottom: 0, left: 0 },
-    outerWidth = 1400,
-    outerHeight = 600,
+    outerWidth = window.innerWidth - 20,
+    outerHeight = window.innerHeight - 100,
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
