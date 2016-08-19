@@ -11,7 +11,6 @@ Args:
     input_images_dir: path to prepend to file names in input_images_list
 """
 
-import os
 import argparse
 import numpy as np
 import random
@@ -51,7 +50,7 @@ def main():
     # load data
     data_load = np.load(args.input_data)
     with open(args.input_images_list, 'r') as f:
-        image_names_load = [os.path.join(args.input_images_dir, l.strip()) for l in f]
+        image_names_load = [l.strip() for l in f]
 
     # shuffle and reduce number of data points to run faster
     # this also results in cleaner visualization
