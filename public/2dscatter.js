@@ -10,8 +10,8 @@ var xCat = "x",
 // rest of logic below
 
 var margin = { top: 0, right: 0, bottom: 0, left: 0 },
-    outerWidth = 1200,
-    outerHeight = 500,
+    outerWidth = 1400,
+    outerHeight = 600,
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 
@@ -48,7 +48,9 @@ d3.csv(CSV_FILE, function(data) {
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
-        return d[nameCat];
+        html_tip = "<img src=\"" + IMAGES_FOLDER + d[nameCat] + "\" alt=\"" + d[nameCat] + "\" />";
+        html_tip += "<p>" + d[nameCat] + "</p>";
+        return html_tip
       });
 
   var zoomBeh = d3.behavior.zoom()
