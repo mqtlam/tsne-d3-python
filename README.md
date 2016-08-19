@@ -10,6 +10,16 @@ pip install cherrypy
 pip install jinja2
 ```
 
+## Quick Demo
+
+Run the following command to visualize a subset of ImageNet data:
+
+```bash
+python visualize_2d_data.npy --port 8080 --host 0.0.0.0 --data data_demo
+```
+
+Open your browser and go to `localhost:8080`. You should see your data visualized! Pan around by dragging with your mouse and zoom with your mouse's scroll wheel.
+
 ## Instructions
 
 ### Setup
