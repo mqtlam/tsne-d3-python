@@ -76,24 +76,24 @@ d3.csv(CSV_FILE, function(data) {
   svg.append("g")
       .classed("x axis", true)
       .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
-    .append("text")
-      .classed("label", true)
-      .attr("x", width)
-      .attr("y", margin.bottom - 10)
-      .style("text-anchor", "end")
-      .text(xCat);
+      .call(xAxis);
+    //.append("text")
+    //  .classed("label", true)
+    //  .attr("x", width)
+    //  .attr("y", margin.bottom - 10)
+    //  .style("text-anchor", "end")
+    //  .text(xCat);
 
   svg.append("g")
       .classed("y axis", true)
-      .call(yAxis)
-    .append("text")
-      .classed("label", true)
-      .attr("transform", "rotate(-90)")
-      .attr("y", -margin.left)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text(yCat);
+      .call(yAxis);
+    //.append("text")
+    //  .classed("label", true)
+    //  .attr("transform", "rotate(-90)")
+    //  .attr("y", -margin.left)
+    //  .attr("dy", ".71em")
+    //  .style("text-anchor", "end")
+    //  .text(yCat);
 
   var objects = svg.append("svg")
       .classed("objects", true)
