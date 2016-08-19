@@ -1,4 +1,5 @@
 import os
+from glob import glob
 import argparse
 import cherrypy
 
@@ -12,6 +13,16 @@ class Server(object):
     def index(self):
         csv_file = '{0}.csv'.format(DATA_FOLDER)
         images_folder = DATA_FOLDER
+
+        if not os.path.exists(os.path.join('public', csv_file)):
+            return "Error: csv file does not exist in public folder: {0}".format(csv_file)
+
+        if not os.path.exists(os.path.join('public', images_folder)):
+            return "Error: data folder does not exist in public folder: {0}".format(images_folder)
+
+        if len(glob(os.path.join('public', images_folder)+'/*')) <= 1:
+            return "Error: data folder does not seem to contain any images"
+
         tmpl = env.get_template('index.html')
         return tmpl.render(csv_file=csv_file, images_folder=images_folder)
 

@@ -29,7 +29,7 @@ rect {
   line-height: 1;
   font-weight: bold;
   padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   color: #fff;
   border-radius: 2px;
 }
@@ -55,12 +55,15 @@ rect {
 }
 
 /* Tool tip image preview */
-.d3-tip img {
-  width: 320px;
+.d3-tip div.image {
+  text-align: center;
+}
+
+.d3-tip div.image > img {
   height: 240px;
 }
 
-.d3-tip p {
+.d3-tip p.caption {
   text-align: center;
   margin: 0.5em 0 0 0;
 }
