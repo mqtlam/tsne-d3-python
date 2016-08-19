@@ -1,8 +1,5 @@
 // settings below
 
-var CSV_FILE = "/static/data.csv";
-var IMAGES_FOLDER = "/static/data/";
-
 var xCat = "x",
     yCat = "y",
     nameCat = "image_name";
