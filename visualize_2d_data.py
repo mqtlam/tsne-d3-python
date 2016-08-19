@@ -10,9 +10,10 @@ DATA_FOLDER = 'data'
 
 class Server(object):
     @cherrypy.expose
-    def index(self):
-        csv_file = '{0}.csv'.format(DATA_FOLDER)
-        images_folder = DATA_FOLDER
+    def index(self, data=None):
+        data = data if data is not None else DATA_FOLDER
+        csv_file = '{0}.csv'.format(data)
+        images_folder = data
 
         if not os.path.exists(os.path.join('public', csv_file)):
             return "Error: csv file does not exist in public folder: {0}".format(csv_file)

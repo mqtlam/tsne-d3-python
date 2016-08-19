@@ -20,6 +20,10 @@ python visualize_2d_data.npy --port 8080 --host 0.0.0.0 --data data_demo
 
 Open your browser and go to `localhost:8080`. You should see your data visualized! Pan around by dragging with your mouse and zoom with your mouse's scroll wheel.
 
+## Screenshot
+
+![Screenshot](screenshot.png)
+
 ## Instructions
 
 ### Setup
