@@ -14,6 +14,7 @@ Args:
 import os
 import argparse
 import numpy as np
+import random
 
 from tsne import bh_sne
 
@@ -42,21 +43,32 @@ def main():
     parser = argparse.ArgumentParser(description='Preprocess data using t-SNE.')
     parser.add_argument('input_data', type=str, help='Path to numpy data file')
     parser.add_argument('input_images_list', type=str, help='Path to text file listing images')
-    parser.add_argument('input_images_dir', type=str, help='Path to images folder')
+    parser.add_argument('--input_images_dir', type=str, default='public/data/', help='Path to images folder')
     parser.add_argument('--output_file', type=str, default='public/data.csv', help='Path to output CSV file')
     parser.add_argument('--max_num_points', type=int, default=1000, help='Max number of points')
     args = parser.parse_args()
 
     # load data
-    data = np.load(args.input_data)
+    data_load = np.load(args.input_data)
     with open(args.input_images_list, 'r') as f:
-        image_names = [os.path.join(args.input_images_dir, l.strip()) for l in f]
+        image_names_load = [os.path.join(args.input_images_dir, l.strip()) for l in f]
 
-    # reduce number of data points to run faster
-    # and also results in cleaner visualization
-    data = data[:args.max_num_points]
-    image_names = image_names[:args.max_num_points]
-    assert data.shape[0] == len(image_names)
+    # shuffle and reduce number of data points to run faster
+    # this also results in cleaner visualization
+    assert len(image_names_load) > 0
+    assert data_load.shape[0] == len(image_names_load)
+    indices = range(data_load.shape[0])
+    random.shuffle(indices)
+
+    data = np.zeros((args.max_num_points, data_load.shape[1]))
+    image_names = []
+    for i, rand_index in enumerate(indices):
+	if i >= args.max_num_points:
+            break
+        data[i,:] = data_load[rand_index,:]
+        image_names.append(image_names_load[rand_index])
+
+    assert data.shape[0] == len(image_names), '{0} and {1}'.format(data.shape[0], len(image_names))
 
     # run dimensionality reduction with t-SNE
     data_tsne = bh_sne(data)
