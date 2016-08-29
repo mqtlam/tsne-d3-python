@@ -10,16 +10,6 @@ pip install cherrypy
 pip install jinja2
 ```
 
-## Quick Demo
-
-Run the following command to visualize a subset of ImageNet data (using VGGnet features):
-
-```bash
-python visualize_2d_data.npy --port 8080 --host 0.0.0.0 --data data_demo
-```
-
-Open your browser and go to `localhost:8080`. You should see your data visualized! Pan around by dragging with your mouse and zoom with your mouse's scroll wheel.
-
 ## Instructions
 
 ### Setup
@@ -60,6 +50,10 @@ python visualize_2d_data.py --port 8080 --host 0.0.0.0
 ```
 
 Open your browser and go to `localhost:8080`. You should see your data visualized! Pan around by dragging with your mouse and zoom with your mouse's scroll wheel.
+
+### Visualize Multiple Datasets
+
+The server can look at multiple datasets. The default data file is `public/data.csv` and images folder is `public/data`. However, one can point to an arbitrary data file name `public/XYZ.csv' and its corresponding images folder `public/XYZ', and then pass the file name as a query string to the server: `localhost:8080/?data=XYZ`.
 
 ## Screenshot
 
